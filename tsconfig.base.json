@@ -15,7 +15,7 @@
     "baseUrl": ".",
     "paths": {
       "@mcp-doctor/core": ["packages/core/src/index.ts"],
-      "@mcp-doctor/cli": ["packages/cli/src/index.ts"]
+      "@fnjp/mcp-doctor": ["packages/cli/src/index.ts"]
     }
   }
 }

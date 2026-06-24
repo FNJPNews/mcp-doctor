@@ -24,7 +24,7 @@ import {
   type TemplateTarget,
 } from "@mcp-doctor/core";
 
-const VERSION = "0.1.0-alpha";
+const VERSION = "0.3.0-alpha";
 
 export interface WritableLike {
   write(chunk: string): unknown;

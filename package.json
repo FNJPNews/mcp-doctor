@@ -1,6 +1,6 @@
 {
   "name": "mcp-doctor",
-  "version": "0.1.0-alpha",
+  "version": "0.3.0-alpha",
   "private": true,
   "description": "Local-first CLI and VS Code extension for scanning, testing, and auditing MCP server configurations.",
   "license": "MIT",

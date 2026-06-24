@@ -10,13 +10,17 @@ This roadmap is provisional and may change as early users test real configuratio
 - Improve README examples for scan, audit, test, and doctor workflows.
 - Collect feedback on risk rules and JSON output shape.
 
-## v0.3.0 Goals
+## v0.3.0-alpha Goals
 
+- Prepare the CLI package to install as a standalone npm package.
+- Use `@fnjp/mcp-doctor` as the planned public npm package name.
+- Keep the installed binary name as `mcp-doctor`.
+- Bundle core runtime output into the CLI package for the first npm alpha release.
+- Verify single-package tarball installation before any npm publish.
 - Add more client-specific config discovery tests.
 - Improve diagnostics for malformed but parseable config shapes.
 - Add more command and transport test cases.
 - Improve VS Code extension usability and error states.
-- Evaluate package naming and npm availability.
 
 ## v1.0.0 Stability Goals
 
@@ -28,13 +32,13 @@ This roadmap is provisional and may change as early users test real configuratio
 
 ## npm Publishing Plan
 
-The preferred user-facing CLI package name was `mcp-doctor`, but npm currently has an existing `mcp-doctor` package. Unless ownership or transfer changes, use a scoped fallback such as `@fnjp/mcp-doctor` or `@mcp-doctor/cli`.
+The planned user-facing CLI package name is `@fnjp/mcp-doctor`. The unscoped package name `mcp-doctor` is already taken on npm and should not be used.
 
 Before publishing:
 
 - Verify package name availability again immediately before publishing.
 - Inspect `npm pack --dry-run` output.
-- Decide whether to publish `@mcp-doctor/core` separately or bundle it into the CLI package.
+- Verify the standalone CLI tarball install test.
 - Confirm redaction and secret search checks.
 - Decide provenance and token strategy.
 - Update README only when npm publishing is actually complete.

@@ -4,16 +4,17 @@ MCP Doctor is a local-first CLI and VS Code extension for scanning, testing, and
 
 MCP Doctor helps developers inspect local Model Context Protocol server configuration files before running or sharing them.
 
-This repository is an early preview project at `v0.1.0-alpha`. Interfaces, rules, and package layout may change before a stable release.
+This repository is an early preview project. The latest GitHub prereleases are `v0.1.0-alpha` and `v0.2.0-alpha`, and the repository is being prepared for a future `v0.3.0-alpha` npm alpha. Interfaces, rules, and package layout may change before a stable release.
 
 ## Current Status
 
-- Current published GitHub release: `v0.1.0-alpha`.
-- The repository is being prepared for a future `v0.2.0-alpha` preview.
+- Current published GitHub prereleases: `v0.1.0-alpha` and `v0.2.0-alpha`.
+- The repository is being prepared for a future `v0.3.0-alpha` preview.
 - pnpm is used for development in this monorepo.
 - The npm package is not published yet.
 - The VS Code extension is not packaged as a `.vsix` and is not published to the VS Code Marketplace.
-- The unscoped npm package name `mcp-doctor` is already taken on npm. A scoped fallback such as `@fnjp/mcp-doctor` or `@mcp-doctor/cli` should be used unless ownership or transfer changes.
+- The unscoped npm package name `mcp-doctor` is already taken on npm.
+- The planned future npm package name is `@fnjp/mcp-doctor`, with the CLI binary still named `mcp-doctor`.
 
 ## Why This Exists
 
@@ -57,15 +58,15 @@ If `pnpm` is already available in your shell, the same commands can be run as `p
 
 ## After npm Publishing
 
-These commands are the preferred end-user experience after npm publishing, but the unscoped `mcp-doctor` package name is currently taken on npm. They do not work from this project until an appropriate package name is published.
+These commands are the preferred end-user experience after npm publishing. They do not work from this project until `@fnjp/mcp-doctor` is actually published to npm.
 
 ```sh
-npx mcp-doctor scan
-npm install -g mcp-doctor
+npx @fnjp/mcp-doctor scan
+npm install -g @fnjp/mcp-doctor
 mcp-doctor scan
 ```
 
-If a scoped fallback is used, the npx command will use the scoped package name while the installed binary can still be `mcp-doctor`. See `docs/npm-publishing.md` for the publishing plan and package-name fallback options.
+The package name is scoped, but the installed binary can still be `mcp-doctor`. See `docs/npm-publishing.md` for the publishing plan and package-name availability notes.
 
 Use `--json` on scan, audit, test, doctor, and paths when machine-readable output is required.
 

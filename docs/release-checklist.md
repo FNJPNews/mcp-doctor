@@ -54,12 +54,12 @@ Matches in redaction logic and security documentation are expected. Real-looking
 
 These are future steps only. Do not run them until npm publishing is approved.
 
-- Check package name availability for `mcp-doctor`.
-- Choose fallback name if needed.
+- Check package name availability for `@fnjp/mcp-doctor`.
+- Confirm `mcp-doctor` remains the CLI binary name.
 - Run `npm pack --dry-run` from the package directory.
 - Run `corepack pnpm pack --pack-destination <temp-directory>` for local tarball install tests.
 - Inspect the tarball contents.
-- Verify whether the CLI tarball requires a separately published core package.
+- Verify the CLI tarball works without installing a separate core package.
 - Confirm npm provenance and token strategy.
 - Publish only after explicit approval.
 
@@ -75,17 +75,16 @@ These are future steps only. Do not run them until Marketplace publishing is app
 
 ## Package Name Availability Check
 
-Preferred package name:
+Planned package name:
 
-- `mcp-doctor`
+- `@fnjp/mcp-doctor`
 
 Current registry finding:
 
 - `mcp-doctor` is already taken on npm.
 
-Fallback options:
+Fallback option if `@fnjp/mcp-doctor` is unavailable at publish time:
 
-- `@fnjp/mcp-doctor`
 - `@mcp-doctor/cli`
 
 Document the chosen package name before updating user-facing install instructions.

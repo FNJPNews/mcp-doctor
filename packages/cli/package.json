@@ -1,6 +1,6 @@
 {
-  "name": "@mcp-doctor/cli",
-  "version": "0.1.0-alpha",
+  "name": "@fnjp/mcp-doctor",
+  "version": "0.3.0-alpha",
   "description": "Command-line interface for MCP Doctor.",
   "license": "MIT",
   "type": "module",
@@ -23,7 +23,8 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "exports": {
     ".": {
@@ -33,16 +34,17 @@
     }
   },
   "scripts": {
-    "build": "node ../../scripts/clean.mjs dist && tsc -p tsconfig.build.json",
+    "build": "corepack pnpm --filter @mcp-doctor/core build && node ../../scripts/clean.mjs dist && tsc -p tsconfig.build.json && node ../../scripts/bundle-cli-core.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --environment node",
     "lint": "eslint src test --ext .ts"
   },
   "dependencies": {
-    "@mcp-doctor/core": "workspace:*",
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@mcp-doctor/core": "workspace:*",
     "vitest": "^2.0.5"
   }
 }

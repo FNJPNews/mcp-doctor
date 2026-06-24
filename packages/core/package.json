@@ -1,6 +1,6 @@
 {
   "name": "@mcp-doctor/core",
-  "version": "0.1.0-alpha",
+  "version": "0.3.0-alpha",
   "description": "Core scanning, parsing, redaction, auditing, and test logic for MCP Doctor.",
   "license": "MIT",
   "type": "module",
