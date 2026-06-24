@@ -26,6 +26,9 @@
     "dist",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -34,17 +37,14 @@
     }
   },
   "scripts": {
-    "build": "corepack pnpm --filter @mcp-doctor/core build && node ../../scripts/clean.mjs dist && tsc -p tsconfig.build.json && node ../../scripts/bundle-cli-core.mjs",
+    "build": "corepack pnpm --filter @mcp-doctor/core build && node ../../scripts/clean.mjs dist && node ../../scripts/build-cli.mjs && tsc -p tsconfig.build.json --emitDeclarationOnly",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --environment node",
     "lint": "eslint src test --ext .ts"
   },
-  "dependencies": {
-    "commander": "^12.1.0",
-    "zod": "^3.23.8"
-  },
   "devDependencies": {
     "@mcp-doctor/core": "workspace:*",
+    "commander": "^12.1.0",
     "vitest": "^2.0.5"
   }
 }

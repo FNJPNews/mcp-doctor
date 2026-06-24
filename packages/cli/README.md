@@ -20,4 +20,4 @@ corepack pnpm build
 corepack pnpm cli scan
 ```
 
-The CLI package bundles MCP Doctor core runtime output under `dist/vendor/core` for the first npm alpha release. The monorepo still keeps `packages/core` as the development source of the shared scanning, parsing, auditing, redaction, and testing logic.
+The CLI package bundles MCP Doctor runtime code into its generated JavaScript for the first npm alpha release. The bundle resolves `@mcp-doctor/core` from the built output in `packages/core/dist`. The monorepo still keeps `packages/core` as the development source of the shared scanning, parsing, auditing, redaction, and testing logic.

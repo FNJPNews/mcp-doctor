@@ -17,7 +17,7 @@
 - Package metadata now declares intentional future package files for generated build output.
 - README clarifies current local usage, planned npm/npx usage, warning semantics, and feedback requests.
 - README and npm publishing docs now use `@fnjp/mcp-doctor` for future npm commands because `mcp-doctor` is already taken on npm.
-- CLI build output now bundles MCP Doctor core runtime code so the CLI tarball can be tested without a separate core tarball.
+- CLI build output now uses an esbuild bundle so the CLI tarball can be tested without a separate core tarball.
 - Future npm publishing docs now include standalone tarball install verification.
 
 ## v0.1.0-alpha

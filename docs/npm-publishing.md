@@ -72,7 +72,9 @@ corepack pnpm build
 - `packages/core` contains shared scanning, parsing, redaction, audit, and test logic for development and future SDK use.
 - The planned public CLI package is `@fnjp/mcp-doctor`.
 - The CLI package exposes a `mcp-doctor` binary.
-- The CLI build copies MCP Doctor core runtime output into `dist/vendor/core` and rewrites the generated CLI import to that bundled path.
+- The CLI build uses esbuild to bundle runtime code into `dist/cli.js` and `dist/index.js`.
+- The esbuild bundle resolves `@mcp-doctor/core` from built output in `packages/core/dist`, not directly from TypeScript source.
+- The CLI package should not have runtime npm dependencies after bundling.
 - The CLI package should not require a separate MCP Doctor registry package at runtime.
 - The CLI package does not require users to install a separate MCP Doctor core package for the first npm alpha release.
 - Tests, fixtures, local examples, coverage, internal prompts, and source files are not included in the CLI package tarball.
@@ -120,6 +122,8 @@ npx --no-install mcp-doctor paths
 ```
 
 The CLI tarball must work without separately installing a core tarball.
+
+Standalone tarball installation has been verified locally for the planned `@fnjp/mcp-doctor` package. npm publishing has not happened yet.
 
 ## Future Alpha Publish Command
 

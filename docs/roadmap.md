@@ -15,7 +15,7 @@ This roadmap is provisional and may change as early users test real configuratio
 - Prepare the CLI package to install as a standalone npm package.
 - Use `@fnjp/mcp-doctor` as the planned public npm package name.
 - Keep the installed binary name as `mcp-doctor`.
-- Bundle core runtime output into the CLI package for the first npm alpha release.
+- Bundle core runtime output into the CLI package for the first npm alpha release using built core output.
 - Verify single-package tarball installation before any npm publish.
 - Add more client-specific config discovery tests.
 - Improve diagnostics for malformed but parseable config shapes.

@@ -17,6 +17,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.18.0
         version: 7.18.0(eslint@8.57.1)(typescript@5.9.3)
+      esbuild:
+        specifier: ^0.21.5
+        version: 0.21.5
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -34,17 +37,13 @@ importers:
         version: 2.1.9(@types/node@20.19.43)
 
   packages/cli:
-    dependencies:
-      commander:
-        specifier: ^12.1.0
-        version: 12.1.0
-      zod:
-        specifier: ^3.23.8
-        version: 3.25.76
     devDependencies:
       '@mcp-doctor/core':
         specifier: workspace:*
         version: link:../core
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
       vitest:
         specifier: ^2.0.5
         version: 2.1.9(@types/node@20.19.43)
