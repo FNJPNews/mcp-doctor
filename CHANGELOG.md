@@ -9,11 +9,13 @@
 - Local testing documentation for running MCP Doctor against example configs.
 - Roadmap and release checklist documents for upcoming alpha releases.
 - Text preview of the VS Code extension sidebar without implying a published Marketplace package.
+- npm package name availability findings and tarball verification notes.
 
 ### Changed
 
 - Package metadata now declares intentional future package files for generated build output.
 - README clarifies current local usage, planned npm/npx usage, warning semantics, and feedback requests.
+- README and npm publishing docs now recommend a scoped fallback because `mcp-doctor` is already taken on npm.
 
 ## v0.1.0-alpha
 

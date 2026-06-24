@@ -56,9 +56,10 @@ These are future steps only. Do not run them until npm publishing is approved.
 
 - Check package name availability for `mcp-doctor`.
 - Choose fallback name if needed.
-- Run `corepack pnpm pack --dry-run` from the package directory.
-- Run `npm pack --dry-run` if using npm for final verification.
+- Run `npm pack --dry-run` from the package directory.
+- Run `corepack pnpm pack --pack-destination <temp-directory>` for local tarball install tests.
 - Inspect the tarball contents.
+- Verify whether the CLI tarball requires a separately published core package.
 - Confirm npm provenance and token strategy.
 - Publish only after explicit approval.
 
@@ -78,6 +79,10 @@ Preferred package name:
 
 - `mcp-doctor`
 
+Current registry finding:
+
+- `mcp-doctor` is already taken on npm.
+
 Fallback options:
 
 - `@fnjp/mcp-doctor`
@@ -90,7 +95,13 @@ Document the chosen package name before updating user-facing install instruction
 Run from the package directory:
 
 ```sh
-corepack pnpm pack --dry-run
+npm pack --dry-run
 ```
 
 Check that required build output is present and unnecessary files are excluded.
+
+For local install testing:
+
+```sh
+corepack pnpm pack --pack-destination <temp-directory>
+```

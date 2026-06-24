@@ -13,7 +13,7 @@ This repository is an early preview project at `v0.1.0-alpha`. Interfaces, rules
 - pnpm is used for development in this monorepo.
 - The npm package is not published yet.
 - The VS Code extension is not packaged as a `.vsix` and is not published to the VS Code Marketplace.
-- The preferred future npm package name is `mcp-doctor`, pending npm availability check.
+- The unscoped npm package name `mcp-doctor` is already taken on npm. A scoped fallback such as `@fnjp/mcp-doctor` or `@mcp-doctor/cli` should be used unless ownership or transfer changes.
 
 ## Why This Exists
 
@@ -57,7 +57,7 @@ If `pnpm` is already available in your shell, the same commands can be run as `p
 
 ## After npm Publishing
 
-These commands are planned for end users after npm publishing. They do not work from npm until a package is actually published.
+These commands are the preferred end-user experience after npm publishing, but the unscoped `mcp-doctor` package name is currently taken on npm. They do not work from this project until an appropriate package name is published.
 
 ```sh
 npx mcp-doctor scan
@@ -65,7 +65,7 @@ npm install -g mcp-doctor
 mcp-doctor scan
 ```
 
-See `docs/npm-publishing.md` for the publishing plan and package-name fallback options.
+If a scoped fallback is used, the npx command will use the scoped package name while the installed binary can still be `mcp-doctor`. See `docs/npm-publishing.md` for the publishing plan and package-name fallback options.
 
 Use `--json` on scan, audit, test, doctor, and paths when machine-readable output is required.
 

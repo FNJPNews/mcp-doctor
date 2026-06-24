@@ -4,6 +4,18 @@
   "description": "Core scanning, parsing, redaction, auditing, and test logic for MCP Doctor.",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FNJPNews/mcp-doctor.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/FNJPNews/mcp-doctor#readme",
+  "bugs": {
+    "url": "https://github.com/FNJPNews/mcp-doctor/issues"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "main": "./dist-cjs/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

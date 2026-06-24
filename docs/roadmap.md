@@ -28,12 +28,13 @@ This roadmap is provisional and may change as early users test real configuratio
 
 ## npm Publishing Plan
 
-The preferred future CLI package name is `mcp-doctor` if available. Fallback names include `@fnjp/mcp-doctor` and `@mcp-doctor/cli`.
+The preferred user-facing CLI package name was `mcp-doctor`, but npm currently has an existing `mcp-doctor` package. Unless ownership or transfer changes, use a scoped fallback such as `@fnjp/mcp-doctor` or `@mcp-doctor/cli`.
 
 Before publishing:
 
-- Verify package name availability.
+- Verify package name availability again immediately before publishing.
 - Inspect `npm pack --dry-run` output.
+- Decide whether to publish `@mcp-doctor/core` separately or bundle it into the CLI package.
 - Confirm redaction and secret search checks.
 - Decide provenance and token strategy.
 - Update README only when npm publishing is actually complete.

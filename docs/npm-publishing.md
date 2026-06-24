@@ -6,16 +6,41 @@ After npm publishing is intentionally enabled, npm and npx should become the use
 
 ## Recommended Package Name
 
-Preferred package name:
+Preferred user-facing package name:
 
 - `mcp-doctor`
 
-This name should be checked on npm before publishing. If it is unavailable, consider:
+Registry check result from 2026-06-25:
+
+```sh
+npm view mcp-doctor name version
+```
+
+Returned:
+
+```text
+name = 'mcp-doctor'
+version = '0.1.1'
+```
+
+The unscoped package name is already taken. Do not publish under that name unless ownership, transfer, or another explicit arrangement makes it available.
+
+Fallback package names checked on 2026-06-25:
+
+```sh
+npm view @mcp-doctor/cli name version
+npm view @fnjp/mcp-doctor name version
+npm view mcp-doctor-core name version
+```
+
+All three returned npm 404 responses at the time of checking. That means they appeared unused then, but availability must be verified again immediately before publishing.
+
+Recommended fallback order:
 
 - `@fnjp/mcp-doctor`
 - `@mcp-doctor/cli`
 
-Until availability is confirmed, treat `mcp-doctor` as the preferred package name pending npm availability check.
+`mcp-doctor-core` is available-looking but should not be the user-facing CLI name. It may be considered only if the core package needs an unscoped package later.
 
 ## Future User Commands
 
@@ -28,6 +53,16 @@ mcp-doctor scan
 ```
 
 Do not document these as current installation commands until the package is actually published.
+
+If a scoped fallback is used, the likely commands become:
+
+```sh
+npx @fnjp/mcp-doctor scan
+npm install -g @fnjp/mcp-doctor
+mcp-doctor scan
+```
+
+The global binary can still be named `mcp-doctor` even when the package is scoped.
 
 ## Current Development Commands
 
@@ -46,7 +81,11 @@ corepack pnpm build
 - The root package is a private monorepo package and should not be published.
 - `@mcp-doctor/core` contains shared scanning, parsing, redaction, audit, and test logic.
 - `@mcp-doctor/cli` currently exposes a `mcp-doctor` binary.
-- A future npm release may publish the CLI package under the unscoped `mcp-doctor` name if available, or use a scoped fallback.
+- `@mcp-doctor/cli` includes only generated `dist` output in its future package files.
+- `@mcp-doctor/core` includes generated `dist` and `dist-cjs` output in its future package files.
+- Tests, fixtures, local examples, coverage, internal prompts, and source files are not included in the CLI package tarball.
+- A future npm release should either publish core first, publish CLI and core together, or bundle core into the CLI package. The current CLI tarball depends on `@mcp-doctor/core`.
+- Package versions are currently alpha versions. Keep core and CLI versions aligned until a different compatibility policy is documented.
 
 ## Required Checks Before npm Publish
 
@@ -62,21 +101,53 @@ corepack pnpm build
 
 Then inspect the package tarball before publishing.
 
-From a package directory:
+`pnpm pack` in pnpm 9 does not provide `--dry-run`. Use `npm pack --dry-run` from the package directory for a dry run:
 
 ```sh
-corepack pnpm pack --dry-run
-corepack pnpm pack
+cd packages/cli
+npm pack --dry-run
 ```
 
-If using npm directly for a final verification:
+Use pnpm to create a local tarball for install testing:
 
 ```sh
-npm pack --dry-run
-npm pack
+corepack pnpm build
+cd packages/cli
+corepack pnpm pack --pack-destination <temp-directory>
 ```
 
 Review the tarball contents before publishing. Build output should be present. Source-only development files, local caches, `node_modules`, and unrelated workspace files should not be included.
+
+## Local Tarball Install Test
+
+The CLI package currently depends on `@mcp-doctor/core`.
+
+Observed result:
+
+- Installing the CLI tarball by itself fails because `@mcp-doctor/core@0.1.0-alpha` is not published to npm.
+- Installing local core and CLI tarballs together works for basic CLI execution.
+
+Successful local test shape:
+
+```sh
+corepack pnpm build
+cd packages/core
+corepack pnpm pack --pack-destination <temp-directory>
+cd ../cli
+corepack pnpm pack --pack-destination <temp-directory>
+cd <new-test-directory>
+npm init -y
+npm install <temp-directory>/mcp-doctor-core-0.1.0-alpha.tgz <temp-directory>/mcp-doctor-cli-0.1.0-alpha.tgz
+npx mcp-doctor version
+npx mcp-doctor scan --help
+npx mcp-doctor paths
+```
+
+Before npm publishing, choose one of these paths:
+
+- Publish `@mcp-doctor/core` before or together with the CLI package.
+- Bundle core into the CLI package.
+- Move the CLI publish package to a structure that does not rely on an unpublished registry dependency.
 
 ## Security Checks Before Publishing
 
