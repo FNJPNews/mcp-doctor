@@ -7,6 +7,10 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "dist-cjs"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

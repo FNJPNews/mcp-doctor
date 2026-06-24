@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "disabled-example": {
+      "command": "node",
+      "args": ["./examples/mock-server.js"],
+      "disabled": true
+    }
+  }
+}

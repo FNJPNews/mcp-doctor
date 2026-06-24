@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "example-filesystem": {
+      "command": "node",
+      "args": ["./examples/mock-server.js"],
+      "env": {
+        "EXAMPLE_MODE": "local-only"
+      }
+    }
+  }
+}

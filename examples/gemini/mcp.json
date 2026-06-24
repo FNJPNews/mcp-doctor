@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "example-http": {
+      "url": "https://example.invalid/mcp",
+      "transport": "http"
+    }
+  }
+}

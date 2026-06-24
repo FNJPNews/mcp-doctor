@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Documentation for future npm and npx publishing preparation.
+- Safe example MCP configurations for Claude Desktop, VS Code, Cursor, Codex, and Gemini.
+- Local testing documentation for running MCP Doctor against example configs.
+- Roadmap and release checklist documents for upcoming alpha releases.
+- Text preview of the VS Code extension sidebar without implying a published Marketplace package.
+
+### Changed
+
+- Package metadata now declares intentional future package files for generated build output.
+- README clarifies current local usage, planned npm/npx usage, warning semantics, and feedback requests.
+
 ## v0.1.0-alpha
 
 First public preview release of MCP Doctor.
