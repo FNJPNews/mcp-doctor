@@ -1,0 +1,33 @@
+{
+  "name": "@mcp-doctor/cli",
+  "version": "0.1.0-alpha",
+  "description": "Command-line interface for MCP Doctor.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-doctor": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "node ../../scripts/clean.mjs dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --environment node",
+    "lint": "eslint src test --ext .ts"
+  },
+  "dependencies": {
+    "@mcp-doctor/core": "workspace:*",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.0.5"
+  }
+}

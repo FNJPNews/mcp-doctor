@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "shell": {
+      "command": "bash",
+      "args": ["-c", "echo test"]
+    }
+  }
+}

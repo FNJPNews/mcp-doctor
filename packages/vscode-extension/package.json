@@ -1,0 +1,78 @@
+{
+  "name": "@mcp-doctor/vscode-extension",
+  "displayName": "MCP Doctor",
+  "version": "0.1.0-alpha",
+  "description": "VS Code extension for scanning, testing, and auditing MCP server configurations locally.",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other"],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:mcpDoctorView",
+    "onCommand:mcpDoctor.refresh",
+    "onCommand:mcpDoctor.scan",
+    "onCommand:mcpDoctor.audit",
+    "onCommand:mcpDoctor.test",
+    "onCommand:mcpDoctor.openConfigFile"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "mcpDoctor.refresh",
+        "title": "MCP Doctor: Refresh"
+      },
+      {
+        "command": "mcpDoctor.scan",
+        "title": "MCP Doctor: Run Scan"
+      },
+      {
+        "command": "mcpDoctor.audit",
+        "title": "MCP Doctor: Run Audit"
+      },
+      {
+        "command": "mcpDoctor.test",
+        "title": "MCP Doctor: Run Test"
+      },
+      {
+        "command": "mcpDoctor.openConfigFile",
+        "title": "MCP Doctor: Open Config File"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "mcpDoctorView",
+          "name": "MCP Doctor"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "mcpDoctor.refresh",
+          "when": "view == mcpDoctorView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "mcpDoctor.openConfigFile",
+          "when": "view == mcpDoctorView && viewItem == mcpDoctorServer"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node ../../scripts/clean.mjs dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@mcp-doctor/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0"
+  }
+}

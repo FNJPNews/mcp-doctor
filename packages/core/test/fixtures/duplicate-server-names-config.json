@@ -1,0 +1,14 @@
+{
+  "servers": [
+    {
+      "name": "duplicate",
+      "command": "node",
+      "args": ["one.js"]
+    },
+    {
+      "name": "duplicate",
+      "command": "node",
+      "args": ["two.js"]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Changelog
+
+## v0.1.0-alpha
+
+First public preview release of MCP Doctor.
+
+### Added
+
+- Local-first CLI for scanning, auditing, testing, and generating MCP configuration templates.
+- Core package for configuration discovery, safe JSON parsing, normalization, validation, redaction, risk rules, command checks, and bounded process tests.
+- VS Code extension package with a local sidebar view and commands backed by the core package.
+- Tests covering discovery, parsing, validation, redaction, risk rules, CLI JSON output, CLI exit codes, generate no-write behavior, command checks, invalid JSON handling, broad filesystem paths, unpinned `npx`, shell command risks, duplicate server names, and JSON redaction.
+- Documentation for getting started, configuration, supported clients, security model, risk rules, development, contribution, and responsible disclosure.
+
+### Known Limitations
+
+- This is an early preview and interfaces may change before a stable release.
+- The package is not published to npm.
+- The VS Code extension is not packaged as a `.vsix` and is not published to the VS Code Marketplace.
+- Codex and Gemini configuration discovery are best effort because config paths may vary.
+- Static analysis cannot guarantee MCP server safety.
+- Secret redaction is best effort and may not recognize every possible secret format.
