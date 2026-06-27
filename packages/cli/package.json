@@ -6,7 +6,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FNJPNews/mcp-doctor.git",
+    "url": "git+https://github.com/FNJPNews/mcp-doctor.git",
     "directory": "packages/cli"
   },
   "homepage": "https://github.com/FNJPNews/mcp-doctor#readme",
@@ -17,7 +17,7 @@
     "node": ">=20.0.0"
   },
   "bin": {
-    "mcp-doctor": "./dist/cli.js"
+    "mcp-doctor": "dist/cli.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
