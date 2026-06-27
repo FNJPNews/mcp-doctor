@@ -57,9 +57,11 @@ These are future steps only. Do not run them until npm publishing is approved.
 - Check package name availability for `@fnjp/mcp-doctor`.
 - Confirm `mcp-doctor` remains the CLI binary name.
 - Run `npm pack --dry-run` from the package directory.
+- Run `npm publish --dry-run --access public --tag alpha` from the package directory.
 - Run `corepack pnpm pack --pack-destination <temp-directory>` for local tarball install tests.
 - Inspect the tarball contents.
 - Verify the CLI tarball works without installing a separate core package.
+- Confirm the publish dry run has no npm package metadata auto-correction warnings.
 - Confirm npm provenance and token strategy.
 - Publish only after explicit approval.
 

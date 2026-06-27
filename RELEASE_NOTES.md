@@ -26,13 +26,13 @@ MCP Doctor is a local-first CLI and VS Code extension package for scanning, test
 
 - Verified `npm pack --dry-run` for the CLI package.
 - Verified local tarball installation using only the CLI tarball.
-- Verified `npx mcp-doctor` commands from the installed tarball:
-  - `npx mcp-doctor version`
-  - `npx mcp-doctor scan --help`
-  - `npx mcp-doctor paths`
-  - `npx mcp-doctor scan --config <path>`
-  - `npx mcp-doctor audit --config <path>`
-  - `npx mcp-doctor test --no-spawn --config <path>`
+- Verified locally installed tarball commands through the `mcp-doctor` binary:
+  - `npx --no-install mcp-doctor version`
+  - `npx --no-install mcp-doctor scan --help`
+  - `npx --no-install mcp-doctor paths`
+  - `npx --no-install mcp-doctor scan --config <path>`
+  - `npx --no-install mcp-doctor audit --config <path>`
+  - `npx --no-install mcp-doctor test --no-spawn --config <path>`
 
 ## Publishing Status
 
@@ -43,7 +43,7 @@ MCP Doctor is a local-first CLI and VS Code extension package for scanning, test
 ## Known Limitations
 
 - `@fnjp/mcp-doctor` availability must be rechecked immediately before npm publishing.
-- npm account, organization scope, 2FA, and provenance strategy still need to be decided.
+- npm 2FA and provenance strategy still need to be finalized.
 - No npm publish was run.
 - No VS Code Marketplace publish was run.
 - Static analysis cannot guarantee that an MCP server is safe.

@@ -36,7 +36,7 @@ Expected interpretation:
 - npm metadata means the package name is already taken.
 - npm 404 means the package appears available, but availability must still be verified at publish time.
 
-Registry check result from 2026-06-25:
+Registry check result from 2026-06-28:
 
 - `mcp-doctor` returned existing package metadata and is already taken.
 - `@fnjp/mcp-doctor` returned npm 404 at the time of checking.
@@ -96,6 +96,14 @@ Then inspect the package tarball before publishing.
 cd packages/cli
 npm pack --dry-run
 ```
+
+Run the npm publish dry run from the CLI package directory before any real publish:
+
+```sh
+npm publish --dry-run --access public --tag alpha
+```
+
+This should complete without npm package metadata auto-correction warnings.
 
 The CLI package tarball should include only intentional files, such as:
 
@@ -157,6 +165,7 @@ Then run:
 npm view @fnjp/mcp-doctor name version
 cd packages/cli
 npm pack --dry-run
+npm publish --dry-run --access public --tag alpha
 ```
 
 Install the generated tarball in a clean temporary project and verify the `mcp-doctor` binary before publishing.

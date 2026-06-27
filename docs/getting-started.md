@@ -1,6 +1,6 @@
 # Getting Started
 
-MCP Doctor is developed as a pnpm monorepo. This repository is an early preview project and is being prepared for a future `v0.3.0-alpha` npm alpha.
+MCP Doctor is developed as a pnpm monorepo. This repository is an early preview project with GitHub prereleases through `v0.3.0-alpha`. The npm package is still not published.
 
 The package is not published to npm. Use the local workspace commands. The Corepack form is recommended on Windows because `pnpm` may not be on PATH.
 

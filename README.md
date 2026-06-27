@@ -4,12 +4,12 @@ MCP Doctor is a local-first CLI and VS Code extension for scanning, testing, and
 
 MCP Doctor helps developers inspect local Model Context Protocol server configuration files before running or sharing them.
 
-This repository is an early preview project. The latest GitHub prereleases are `v0.1.0-alpha` and `v0.2.0-alpha`, and the repository is being prepared for a future `v0.3.0-alpha` npm alpha. Interfaces, rules, and package layout may change before a stable release.
+This repository is an early preview project. The latest GitHub prereleases are `v0.1.0-alpha`, `v0.2.0-alpha`, and `v0.3.0-alpha`. The npm package is still not published. Interfaces, rules, and package layout may change before a stable release.
 
 ## Current Status
 
-- Current published GitHub prereleases: `v0.1.0-alpha` and `v0.2.0-alpha`.
-- The repository is being prepared for a future `v0.3.0-alpha` preview.
+- Current published GitHub prereleases: `v0.1.0-alpha`, `v0.2.0-alpha`, and `v0.3.0-alpha`.
+- The repository is prepared for a future npm alpha publish, but no npm publish has been run.
 - pnpm is used for development in this monorepo.
 - The npm package is not published yet.
 - The VS Code extension is not packaged as a `.vsix` and is not published to the VS Code Marketplace.
